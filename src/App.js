@@ -71,6 +71,8 @@ const App = ({ signOut }) => {
   return (
     <View className="App">
       <Heading level={1}>My Notes App</Heading>
+      <br/>
+      <Heading level={3}>Add Note</Heading>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
           <TextField
@@ -80,6 +82,7 @@ const App = ({ signOut }) => {
             labelHidden
             variation="quiet"
             required
+            style={{ width: '200px'}}
           />
           <TextField
             name="description"
@@ -88,6 +91,7 @@ const App = ({ signOut }) => {
             labelHidden
             variation="quiet"
             required
+            style={{ width: '400px'}}
           />
           <View
             name="image"
@@ -100,7 +104,7 @@ const App = ({ signOut }) => {
           </Button>
         </Flex>
       </View>
-      <Heading level={2}>Current Notes</Heading>
+      <Heading level={3}>Current Notes</Heading>
       <View margin="3rem 0">
         {notes.map((note) => (
           <Flex
