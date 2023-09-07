@@ -25,7 +25,7 @@ const App = ({ signOut }) => {
     fetchNotes();
   }, []);
 
-  async function fetchNotes() {
+  const fetchNotes = async () => {
     const apiData = await API.graphql({ query: listNotes });
     const notesFromAPI = apiData.data.listNotes.items;
     await Promise.all(
@@ -40,7 +40,7 @@ const App = ({ signOut }) => {
     setNotes(notesFromAPI);
   }
 
-  async function createNote(event) {
+  const createNote = async (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
     const image = form.get("image");
@@ -58,7 +58,7 @@ const App = ({ signOut }) => {
     event.target.reset();
   }
 
-  async function deleteNote({ id, name }) {
+  const deleteNote = async ({ id, name }) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
     await Storage.remove(name);
